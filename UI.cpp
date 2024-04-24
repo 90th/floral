@@ -10,11 +10,16 @@ ID3D11RenderTargetView* UI::pMainRenderTargetView = nullptr;
 
 HMODULE UI::hCurrentModule = nullptr;
 
-UI::UI()
-{
+UI::UI() {
+	pd3dDevice = nullptr;
+	pd3dDeviceContext = nullptr;
+	pSwapChain = nullptr;
+	pMainRenderTargetView = nullptr;
+	hCurrentModule = nullptr;
 }
 
 UI::~UI() {
+	CleanupDeviceD3D();
 }
 
 bool UI::CreateDeviceD3D(HWND hWnd)
@@ -85,7 +90,7 @@ void UI::CleanupDeviceD3D()
 	{
 		pd3dDevice->Release();
 		pd3dDevice = nullptr;
-}
+	}
 }
 
 #ifndef WM_DPICHANGED
