@@ -19,6 +19,9 @@
     <Filter Include="headers\SceneManager">
       <UniqueIdentifier>{edef1d5f-ffc6-45de-889d-5a6165e6afa4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\SceneManager\Scenes">
+      <UniqueIdentifier>{29d9c776-c7de-4d80-b00c-254327c00fdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,7 +58,7 @@
       <Filter>headers\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>headers\SceneManager</Filter>
+      <Filter>headers\SceneManager\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,7 +102,7 @@
       <Filter>headers\SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>headers\SceneManager</Filter>
+      <Filter>headers\SceneManager\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
