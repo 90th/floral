@@ -4,5 +4,4 @@ class Scene {
 public:
 	virtual void Render() = 0;
 };
-
 #endif
