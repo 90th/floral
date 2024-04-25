@@ -53,16 +53,14 @@ bool UI::CreateDeviceD3D(HWND hWnd) {
 void UI::CreateRenderTarget() {
 	ID3D11Texture2D* pBackBuffer;
 	pSwapChain->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
-	if (pBackBuffer != nullptr)
-	{
+	if (pBackBuffer != nullptr) {
 		pd3dDevice->CreateRenderTargetView(pBackBuffer, nullptr, &pMainRenderTargetView);
 		pBackBuffer->Release();
 	}
 }
 
 void UI::CleanupRenderTarget() {
-	if (pMainRenderTargetView)
-	{
+	if (pMainRenderTargetView) {
 		pMainRenderTargetView->Release();
 		pMainRenderTargetView = nullptr;
 	}
@@ -70,20 +68,17 @@ void UI::CleanupRenderTarget() {
 
 void UI::CleanupDeviceD3D() {
 	CleanupRenderTarget();
-	if (pSwapChain)
-	{
+	if (pSwapChain) {
 		pSwapChain->Release();
 		pSwapChain = nullptr;
 	}
 
-	if (pd3dDeviceContext)
-	{
+	if (pd3dDeviceContext) {
 		pd3dDeviceContext->Release();
 		pd3dDeviceContext = nullptr;
 	}
 
-	if (pd3dDevice)
-	{
+	if (pd3dDevice) {
 		pd3dDevice->Release();
 		pd3dDevice = nullptr;
 	}
@@ -100,8 +95,7 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	switch (msg)
 	{
 	case WM_SIZE:
-		if (pd3dDevice != nullptr && wParam != SIZE_MINIMIZED)
-		{
+		if (pd3dDevice != nullptr && wParam != SIZE_MINIMIZED) {
 			CleanupRenderTarget();
 			pSwapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), DXGI_FORMAT_UNKNOWN, 0);
 			CreateRenderTarget();
@@ -118,8 +112,7 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 		return 0;
 
 	case WM_DPICHANGED:
-		if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_DpiEnableScaleViewports)
-		{
+		if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_DpiEnableScaleViewports) {
 			const RECT* suggested_rect = (RECT*)lParam;
 			::SetWindowPos(hWnd, nullptr, suggested_rect->left, suggested_rect->top, suggested_rect->right - suggested_rect->left, suggested_rect->bottom - suggested_rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
 		}
@@ -137,8 +130,7 @@ void UI::Render() {
 	::RegisterClassEx(&wc);
 	const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("floral"), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, NULL);
 
-	if (!CreateDeviceD3D(hwnd))
-	{
+	if (!CreateDeviceD3D(hwnd)) {
 		CleanupDeviceD3D();
 		::UnregisterClass(wc.lpszClassName, wc.hInstance);
 		return;
@@ -163,11 +155,9 @@ void UI::Render() {
 
 	bool bDone = false;
 
-	while (!bDone)
-	{
+	while (!bDone) {
 		MSG msg;
-		while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE))
-		{
+		while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
 			::TranslateMessage(&msg);
 			::DispatchMessage(&msg);
 			if (msg.message == WM_QUIT)
@@ -194,8 +184,7 @@ void UI::Render() {
 		pd3dDeviceContext->ClearRenderTargetView(pMainRenderTargetView, clear_color_with_alpha);
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
-		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-		{
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
 			ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 		}
