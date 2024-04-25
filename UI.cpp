@@ -22,8 +22,7 @@ UI::~UI() {
 	CleanupDeviceD3D();
 }
 
-bool UI::CreateDeviceD3D(HWND hWnd)
-{
+bool UI::CreateDeviceD3D(HWND hWnd) {
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
 	sd.BufferCount = 2;
@@ -51,8 +50,7 @@ bool UI::CreateDeviceD3D(HWND hWnd)
 	return true;
 }
 
-void UI::CreateRenderTarget()
-{
+void UI::CreateRenderTarget() {
 	ID3D11Texture2D* pBackBuffer;
 	pSwapChain->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
 	if (pBackBuffer != nullptr)
@@ -62,8 +60,7 @@ void UI::CreateRenderTarget()
 	}
 }
 
-void UI::CleanupRenderTarget()
-{
+void UI::CleanupRenderTarget() {
 	if (pMainRenderTargetView)
 	{
 		pMainRenderTargetView->Release();
@@ -71,8 +68,7 @@ void UI::CleanupRenderTarget()
 	}
 }
 
-void UI::CleanupDeviceD3D()
-{
+void UI::CleanupDeviceD3D() {
 	CleanupRenderTarget();
 	if (pSwapChain)
 	{
@@ -97,8 +93,7 @@ void UI::CleanupDeviceD3D()
 #define WM_DPICHANGED 0x02E0 // From Windows SDK 8.1+ headers
 #endif
 
-LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
+LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
 		return true;
 
@@ -136,8 +131,7 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	return ::DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
-void UI::Render()
-{
+void UI::Render() {
 	ImGui_ImplWin32_EnableDpiAwareness();
 	const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T("floral"), nullptr };
 	::RegisterClassEx(&wc);
@@ -153,20 +147,12 @@ void UI::Render()
 	::ShowWindow(hwnd, SW_HIDE);
 	::UpdateWindow(hwnd);
 
-	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
 	ImGui::StyleColorsDark();
-
-	ImGuiStyle& style = ImGui::GetStyle();
-	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-	{
-		style.WindowRounding = 4.0f;
-		style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-	}
 
 	ImGui::GetIO().IniFilename = nullptr;
 

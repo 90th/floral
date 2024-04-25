@@ -4,8 +4,7 @@
 #include "pch.h"
 #include "SceneManager.h"
 
-class Drawing
-{
+class Drawing {
 private:
 	static SceneManager* sceneManager;
 
@@ -14,11 +13,7 @@ public:
 
 	static void Active();
 	static bool isActive();
-
-	// Constructor
-	Drawing(SceneManager* manager);
-
-	// Draws the current scene
+	//Drawing(SceneManager* manager);
 	static void Draw();
 };
 
