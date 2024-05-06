@@ -16,6 +16,7 @@ public:
 		std::lock_guard<std::mutex> lock(mutex_);
 		if (!consoleAllocated) {
 			AllocConsole();
+			system("title [Debug Console] - Floral");
 			freopen_s(&consoleOut, "CONOUT$", "w", stdout);
 			consoleAllocated = true;
 		}
