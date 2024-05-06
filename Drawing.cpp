@@ -19,4 +19,4 @@ void Drawing::Draw() {
 	if (GetAsyncKeyState(VK_INSERT) & 1)
 		bDraw = !bDraw;
 #endif
-	}
+}

@@ -1,5 +1,6 @@
 #include "SplashScreen.h"
-#include <windows.h>
+#include "SceneManager.h"
+#include "MainMenu.h"
 
 LPCSTR SplashScreen::lpWindowName = "Splash";
 ImVec2 SplashScreen::vWindowSize = { 350, 450 }; // Initial window size
@@ -10,9 +11,13 @@ void SplashScreen::Render() {
 	ImGui::SetNextWindowBgAlpha(1.0f);
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
-		ImGui::Text("Splash Screen");
-		ImGui::Text("Version 1.0.0");
+		// Debug text to ensure this part of code is reached
 		ImGui::Text("Ready to switch scenes.");
+
+		if (ImGui::Button("Switch to MainMenu")) {
+			// Set the scene to SplashScreen
+			SceneManager::GetInstance().SetScene(std::make_unique<MainMenu>());
+		}
 	}
 	ImGui::End();
 }

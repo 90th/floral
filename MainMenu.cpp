@@ -13,14 +13,6 @@ void MainMenu::Render() {
 	{
 		ImGui::Text("Main menu");
 
-		// Debug text to ensure this part of code is reached
-		ImGui::Text("Ready to switch scenes.");
-
-		if (ImGui::Button("Switch to Splash Screen")) {
-			// Set the scene to SplashScreen
-			SceneManager::GetInstance().SetScene(std::make_unique<SplashScreen>());
-		}
-
 		// Additional debugging information can go here
 	}
 	ImGui::End();

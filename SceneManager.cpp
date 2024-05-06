@@ -1,7 +1,7 @@
 #include "SceneManager.h"
-#include "MainMenu.h" // Include your scene headers as needed
+#include "SplashScreen.h" // Include your scene headers as needed
 
-SceneManager::SceneManager() : currentScene(std::make_unique<MainMenu>()) {}
+SceneManager::SceneManager() : currentScene(std::make_unique<SplashScreen>()) {}
 
 SceneManager::~SceneManager() {}
 
