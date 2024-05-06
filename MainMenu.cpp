@@ -1,6 +1,6 @@
 #include "MainMenu.h"
 #include "DebugConsole.h"
-#include "SceneManager.h"
+#include "WindowManager.h"
 #include "SplashScreen.h"
 
 LPCSTR MainMenu::lpWindowName = "Main menu";

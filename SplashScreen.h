@@ -1,12 +1,12 @@
 #ifndef SPLASH_SCREEN_H
 #define SPLASH_SCREEN_H
 
-#include "Scene.h"
+#include "Window.h"
 #include "pch.h"
 #include "Drawing.h"
 
 // Class for rendering the splash scene
-class SplashScreen : public Scene {
+class SplashScreen : public Window {
 private:
 	static LPCSTR lpWindowName;
 	static ImVec2 vWindowSize;

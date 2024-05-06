@@ -1,5 +1,5 @@
 #include "Drawing.h"
-#include "SceneManager.h"
+#include "WindowManager.h"
 
 bool Drawing::bDraw = true;
 
@@ -13,7 +13,7 @@ bool Drawing::isActive() {
 
 void Drawing::Draw() {
 	if (isActive()) {
-		SceneManager::GetInstance().Render(); // Render the current scene using SceneManager
+		WindowManager::GetInstance().Render(); // Render the current scene using WindowManager
 	}
 #ifdef _WINDLL
 	if (GetAsyncKeyState(VK_INSERT) & 1)

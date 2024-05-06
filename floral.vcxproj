@@ -158,7 +158,7 @@
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
@@ -175,8 +175,8 @@
     <ClInclude Include="ImGui\imstb_truetype.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="WindowManager.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>

@@ -57,7 +57,7 @@
     <ClCompile Include="ImGui\imgui_impl_win32.cpp">
       <Filter>headers\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
+    <ClCompile Include="WindowManager.cpp">
       <Filter>headers\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="SplashScreen.cpp">
@@ -101,10 +101,10 @@
     <ClInclude Include="pch.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="Window.h">
       <Filter>headers\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
+    <ClInclude Include="WindowManager.h">
       <Filter>headers\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreen.h">
