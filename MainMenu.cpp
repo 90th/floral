@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "DebugConsole.h"
 #include "SceneManager.h"
 #include "SplashScreen.h"
 

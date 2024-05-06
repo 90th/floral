@@ -22,6 +22,9 @@
     <Filter Include="headers\Scenes\Menus">
       <UniqueIdentifier>{d4622dc6-4f41-4c63-936b-e0d70fcb933a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\DebugConsole">
+      <UniqueIdentifier>{2b87d00a-5c07-45c3-b409-21b15d155ccb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>headers\Scenes\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugConsole.h">
+      <Filter>headers\DebugConsole</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

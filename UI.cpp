@@ -1,4 +1,5 @@
 #include "UI.h"
+#include "DebugConsole.h"
 #include "Drawing.h"
 
 std::unique_ptr<UI> UI::_instance = std::make_unique<UI>();
@@ -125,6 +126,7 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 void UI::Render() {
+	DebugConsole::Instance().OpenConsole();
 	ImGui_ImplWin32_EnableDpiAwareness();
 	const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T("floral"), nullptr };
 	::RegisterClassEx(&wc);
