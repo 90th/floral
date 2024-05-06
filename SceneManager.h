@@ -2,19 +2,27 @@
 #define SCENE_MANAGER_H
 
 #include "Scene.h"
+#include <memory>
 
-// Class for managing scenes and rendering the current scene
 class SceneManager {
 private:
-
-	Scene* currentScene;
+	std::unique_ptr<Scene> currentScene;
 
 public:
+	// Constructor
 	SceneManager();
 
-	void SetScene(Scene* scene);
+	// Destructor
+	~SceneManager();
 
+	// Get a singleton instance of SceneManager
+	static SceneManager& GetInstance();
+
+	// Set the current scene
+	void SetScene(std::unique_ptr<Scene> scene);
+
+	// Render the current scene
 	void Render();
 };
 
-#endif
+#endif // SCENE_MANAGER_H

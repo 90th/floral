@@ -16,11 +16,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="headers\SceneManager">
-      <UniqueIdentifier>{edef1d5f-ffc6-45de-889d-5a6165e6afa4}</UniqueIdentifier>
+    <Filter Include="headers\Scenes">
+      <UniqueIdentifier>{d61810f1-a2ab-4057-acb2-ee5c2f853d3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\SceneManager\Scenes">
-      <UniqueIdentifier>{29d9c776-c7de-4d80-b00c-254327c00fdf}</UniqueIdentifier>
+    <Filter Include="headers\Scenes\Menus">
+      <UniqueIdentifier>{d4622dc6-4f41-4c63-936b-e0d70fcb933a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,10 +55,13 @@
       <Filter>headers\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>headers\SceneManager</Filter>
+      <Filter>headers\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashScreen.cpp">
+      <Filter>headers\Scenes\Menus</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>headers\SceneManager\Scenes</Filter>
+      <Filter>headers\Scenes\Menus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,13 +99,16 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>headers\SceneManager</Filter>
+      <Filter>headers\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>headers\SceneManager</Filter>
+      <Filter>headers\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.h">
+      <Filter>headers\Scenes\Menus</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>headers\SceneManager\Scenes</Filter>
+      <Filter>headers\Scenes\Menus</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

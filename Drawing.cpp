@@ -1,7 +1,7 @@
 #include "Drawing.h"
+#include "SceneManager.h"
 
 bool Drawing::bDraw = true;
-SceneManager* Drawing::sceneManager = new SceneManager();
 
 void Drawing::Active() {
 	bDraw = true;
@@ -12,11 +12,11 @@ bool Drawing::isActive() {
 }
 
 void Drawing::Draw() {
-	if (isActive() && sceneManager != nullptr) {
-		sceneManager->Render();
+	if (isActive()) {
+		SceneManager::GetInstance().Render(); // Render the current scene using SceneManager
 	}
 #ifdef _WINDLL
 	if (GetAsyncKeyState(VK_INSERT) & 1)
 		bDraw = !bDraw;
 #endif
-}
+	}

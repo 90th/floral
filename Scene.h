@@ -2,6 +2,6 @@
 #define SCENE_H
 class Scene {
 public:
-	virtual void Render() = 0;
+	virtual inline void Render() = 0;
 };
 #endif
