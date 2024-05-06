@@ -5,7 +5,7 @@
 #include "pch.h"
 #include "Drawing.h"
 
-// Class for rendering the main menu scene
+// Class for rendering the main menu window
 class MainMenu : public Window {
 private:
 	static LPCSTR lpWindowName;

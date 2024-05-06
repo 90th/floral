@@ -13,7 +13,7 @@ bool Drawing::isActive() {
 
 void Drawing::Draw() {
 	if (isActive()) {
-		WindowManager::GetInstance().Render(); // Render the current scene using WindowManager
+		WindowManager::GetInstance().Render(); // Render the current window using WindowManager
 	}
 #ifdef _WINDLL
 	if (GetAsyncKeyState(VK_INSERT) & 1)

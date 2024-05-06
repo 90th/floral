@@ -13,8 +13,6 @@ void MainMenu::Render() {
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
 		ImGui::Text("Main menu");
-
-		// Additional debugging information can go here
 	}
 	ImGui::End();
 }
