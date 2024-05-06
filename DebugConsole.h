@@ -7,7 +7,7 @@
 
 class DebugConsole {
 public:
-	static DebugConsole& Instance() {
+	static DebugConsole& GetInstance() {
 		static DebugConsole instance;
 		return instance;
 	}

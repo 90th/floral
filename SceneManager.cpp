@@ -1,13 +1,19 @@
 #include "SceneManager.h"
-#include "SplashScreen.h" // Include your scene headers as needed
+#include "SplashScreen.h"
+#include "DebugConsole.h"
 
-SceneManager::SceneManager() : currentScene(std::make_unique<SplashScreen>()) {}
+SceneManager::SceneManager() {}
 
 SceneManager::~SceneManager() {}
 
 SceneManager& SceneManager::GetInstance() {
-	static SceneManager instance;
-	return instance;
+	static std::unique_ptr<SceneManager> _instance;
+	if (!_instance) {
+		_instance = std::make_unique<SceneManager>();
+		// Initialize with default scene, for example:
+		_instance->currentScene = std::make_unique<SplashScreen>();
+	}
+	return *_instance;
 }
 
 void SceneManager::SetScene(std::unique_ptr<Scene> scene) {
