@@ -11,10 +11,9 @@ void SplashScreen::Render() {
 	ImGui::SetNextWindowBgAlpha(1.0f);
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
-		ImGui::Text("Ready to switch scenes.");
+		ImGui::Text("Ready to switch window.");
 
 		if (ImGui::Button("Switch to MainMenu")) {
-			// Set the scene to SplashScreen
 			WindowManager::GetInstance().SetWindow(std::make_unique<MainMenu>());
 		}
 	}

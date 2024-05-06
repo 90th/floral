@@ -25,4 +25,4 @@ public:
 	void Render();
 };
 
-#endif // SCENE_MANAGER_H
+#endif // WINDOW_MANAGER_H

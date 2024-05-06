@@ -16,14 +16,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="headers\Scenes">
-      <UniqueIdentifier>{d61810f1-a2ab-4057-acb2-ee5c2f853d3f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="headers\Scenes\Menus">
-      <UniqueIdentifier>{d4622dc6-4f41-4c63-936b-e0d70fcb933a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="headers\DebugConsole">
       <UniqueIdentifier>{2b87d00a-5c07-45c3-b409-21b15d155ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\WindowManager">
+      <UniqueIdentifier>{d61810f1-a2ab-4057-acb2-ee5c2f853d3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\WindowManager\Windows">
+      <UniqueIdentifier>{d4622dc6-4f41-4c63-936b-e0d70fcb933a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,13 +58,13 @@
       <Filter>headers\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="WindowManager.cpp">
-      <Filter>headers\Scenes</Filter>
+      <Filter>headers\WindowManager</Filter>
     </ClCompile>
     <ClCompile Include="SplashScreen.cpp">
-      <Filter>headers\Scenes\Menus</Filter>
+      <Filter>headers\WindowManager\Windows</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>headers\Scenes\Menus</Filter>
+      <Filter>headers\WindowManager\Windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,16 +102,16 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>headers\Scenes</Filter>
+      <Filter>headers\WindowManager</Filter>
     </ClInclude>
     <ClInclude Include="WindowManager.h">
-      <Filter>headers\Scenes</Filter>
+      <Filter>headers\WindowManager</Filter>
     </ClInclude>
     <ClInclude Include="SplashScreen.h">
-      <Filter>headers\Scenes\Menus</Filter>
+      <Filter>headers\WindowManager\Windows</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>headers\Scenes\Menus</Filter>
+      <Filter>headers\WindowManager\Windows</Filter>
     </ClInclude>
     <ClInclude Include="DebugConsole.h">
       <Filter>headers\DebugConsole</Filter>
