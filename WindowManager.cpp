@@ -10,7 +10,6 @@ WindowManager& WindowManager::GetInstance() {
 	static std::unique_ptr<WindowManager> _instance;
 	if (!_instance) {
 		_instance = std::make_unique<WindowManager>();
-		// Initialize with default window, for example:
 		_instance->currentWindow = std::make_unique<SplashScreen>();
 	}
 	return *_instance;

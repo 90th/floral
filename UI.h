@@ -20,6 +20,7 @@ private:
 	static void CreateRenderTarget();
 	static void CleanupRenderTarget();
 	static LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	static void CenterWindowOnScreen(HWND hwnd);
 
 public:
 	static HMODULE hCurrentModule;

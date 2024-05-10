@@ -3,8 +3,8 @@
 #include "MainMenu.h"
 
 LPCSTR SplashScreen::lpWindowName = "Splash";
-ImVec2 SplashScreen::vWindowSize = { 350, 450 }; // Initial window size
-ImGuiWindowFlags SplashScreen::WindowFlags = 0;
+ImVec2 SplashScreen::vWindowSize = { 350, 200 }; // Initial window size
+ImGuiWindowFlags SplashScreen::WindowFlags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse;
 
 void SplashScreen::Render() {
 	ImGui::SetNextWindowSize(vWindowSize, ImGuiCond_Once);

@@ -125,12 +125,36 @@ LRESULT WINAPI UI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	return ::DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
+inline void UI::CenterWindowOnScreen(HWND hwnd) {
+	RECT clientRect;
+	GetClientRect(hwnd, &clientRect);
+
+	POINT clientTopLeft = { clientRect.left, clientRect.top };
+	ClientToScreen(hwnd, &clientTopLeft);
+
+	POINT clientBottomRight = { clientRect.right, clientRect.bottom };
+	ClientToScreen(hwnd, &clientBottomRight);
+
+	int windowWidth = clientBottomRight.x - clientTopLeft.x;
+	int windowHeight = clientBottomRight.y - clientTopLeft.y;
+
+	RECT workArea;
+	SystemParametersInfo(SPI_GETWORKAREA, 0, &workArea, 0);
+
+	int centerX = workArea.left + (workArea.right - workArea.left - windowWidth) / 2 - 240;
+	int centerY = workArea.top + (workArea.bottom - workArea.top - windowHeight) / 2 - 240;
+
+	SetWindowPos(hwnd, NULL, centerX, centerY, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+}
+
 void UI::Render() {
 	DebugConsole::GetInstance().OpenConsole();
 	ImGui_ImplWin32_EnableDpiAwareness();
 	const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T("floral"), nullptr };
 	::RegisterClassEx(&wc);
 	const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("floral"), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, NULL);
+
+	UI::CenterWindowOnScreen(hwnd);
 
 	if (!CreateDeviceD3D(hwnd)) {
 		CleanupDeviceD3D();
@@ -146,7 +170,7 @@ void UI::Render() {
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-	ImGui::StyleColorsDark();
+	ImGui::DarkStyle();
 
 	ImGui::GetIO().IniFilename = nullptr;
 
@@ -157,6 +181,7 @@ void UI::Render() {
 
 	bool bDone = false;
 
+	DebugConsole::GetInstance().Print("[Debug] Starting UI loop...");
 	while (!bDone) {
 		MSG msg;
 		while (::PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
