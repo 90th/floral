@@ -26,7 +26,7 @@ UI::~UI() {
 bool UI::CreateDeviceD3D(HWND hWnd) {
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
-	sd.BufferCount = 2;
+	sd.BufferCount = 3;
 	sd.BufferDesc.Width = 0;
 	sd.BufferDesc.Height = 0;
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -138,7 +138,7 @@ inline void UI::CenterWindowOnScreen(HWND hwnd) {
 	int windowWidth = clientBottomRight.x - clientTopLeft.x;
 	int windowHeight = clientBottomRight.y - clientTopLeft.y;
 
-	RECT workArea;
+	RECT workArea{};
 	SystemParametersInfo(SPI_GETWORKAREA, 0, &workArea, 0);
 
 	int centerX = workArea.left + (workArea.right - workArea.left - windowWidth) / 2 - 240;
