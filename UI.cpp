@@ -142,7 +142,7 @@ inline void UI::CenterWindowOnScreen(HWND hwnd) {
 	RECT workArea{};
 	SystemParametersInfo(SPI_GETWORKAREA, 0, &workArea, 0);
 
-	int centerX = workArea.left + (workArea.right - workArea.left - windowWidth) / 2 - 240;
+	int centerX = workArea.left + (workArea.right - workArea.left - windowWidth) / 2 - 165;
 	int centerY = workArea.top + (workArea.bottom - workArea.top - windowHeight) / 2 - 240;
 
 	SetWindowPos(hwnd, NULL, centerX, centerY, 0, 0, SWP_NOSIZE | SWP_NOZORDER);

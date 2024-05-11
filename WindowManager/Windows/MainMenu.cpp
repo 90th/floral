@@ -8,7 +8,7 @@ LPCSTR MainMenu::lpWindowName = "Main menu";
 ImGuiWindowFlags MainMenu::WindowFlags = 0;
 
 void MainMenu::Render() {
-	ImGui::SetNextWindowSizeConstraints(ImVec2(350, 450), ImVec2(FLT_MAX, FLT_MAX)); // Set minimum window size
+	ImGui::SetNextWindowSizeConstraints(ImVec2(350, 490), ImVec2(FLT_MAX, FLT_MAX)); // Set minimum window size
 	ImGui::SetNextWindowBgAlpha(1.0f);
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
@@ -20,11 +20,10 @@ void MainMenu::Render() {
 		}
 		ImGui::EndChild();
 
-		ImGui::BeginChild("child2", ImVec2(0, 200), true, ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::BeginChild("child2", ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysAutoResize);
 		{
 			ImGui::Text("Child 2");
-		}
-		ImGui::EndChild();
+		}ImGui::EndChild();
 	}
 	ImGui::End();
 }
