@@ -39,6 +39,7 @@ void SplashScreen::Render() {
 	{
 		ImGui::Text("Ready to switch window.");
 		drawLoadingAnimation();
+		ImGui::Separator();
 		if (ImGui::Button("Switch to MainMenu")) {
 			WindowManager::GetInstance().SetWindow(std::make_unique<MainMenu>());
 		}

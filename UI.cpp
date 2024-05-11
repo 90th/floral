@@ -1,6 +1,7 @@
 #include "UI.h"
 #include "DebugConsole.h"
 #include "Drawing.h"
+#include "GlobalData.h"
 
 std::unique_ptr<UI> UI::_instance = std::make_unique<UI>();
 
@@ -26,7 +27,7 @@ UI::~UI() {
 bool UI::CreateDeviceD3D(HWND hWnd) {
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
-	sd.BufferCount = 3;
+	sd.BufferCount = 2;
 	sd.BufferDesc.Width = 0;
 	sd.BufferDesc.Height = 0;
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -155,6 +156,7 @@ void UI::Render() {
 	const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("floral"), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, NULL);
 
 	UI::CenterWindowOnScreen(hwnd);
+	GlobalData::GetInstance()->setUserData({ "floral", "", "" });
 
 	if (!CreateDeviceD3D(hwnd)) {
 		CleanupDeviceD3D();

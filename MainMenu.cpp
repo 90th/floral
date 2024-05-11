@@ -2,6 +2,7 @@
 #include "DebugConsole.h"
 #include "WindowManager.h"
 #include "SplashScreen.h"
+#include "GlobalData.h"
 
 LPCSTR MainMenu::lpWindowName = "Main menu";
 ImVec2 MainMenu::vWindowSize = { 350, 450 };
@@ -12,7 +13,7 @@ void MainMenu::Render() {
 	ImGui::SetNextWindowBgAlpha(1.0f);
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
-		ImGui::Text("Main menu");
+		ImGui::Text("Username: %s", GlobalData::GetInstance()->getUserData().username.c_str());
 	}
 	ImGui::End();
 }
