@@ -1,5 +1,5 @@
 #include "WindowManager.h"
-#include "SplashScreen.h"
+#include "Windows/SplashScreen.h"
 
 WindowManager::WindowManager() {}
 

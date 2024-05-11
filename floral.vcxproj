@@ -150,7 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Drawing.cpp" />
-    <ClCompile Include="GlobalData.cpp" />
+    <ClCompile Include="GlobalData\GlobalData.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -159,15 +159,15 @@
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="WindowManager.cpp" />
-    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="WindowManager\WindowManager.cpp" />
+    <ClCompile Include="WindowManager\Windows\MainMenu.cpp" />
+    <ClCompile Include="WindowManager\Windows\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DebugConsole.h" />
+    <ClInclude Include="DebugConsole\DebugConsole.h" />
     <ClInclude Include="Drawing.h" />
-    <ClInclude Include="GlobalData.h" />
+    <ClInclude Include="GlobalData\GlobalData.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -176,12 +176,13 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
-    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Window.h" />
-    <ClInclude Include="WindowManager.h" />
-    <ClInclude Include="SplashScreen.h" />
+    <ClInclude Include="TaskScheduler\TaskScheduler.hpp" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="WindowManager\Window.h" />
+    <ClInclude Include="WindowManager\WindowManager.h" />
+    <ClInclude Include="WindowManager\Windows\MainMenu.h" />
+    <ClInclude Include="WindowManager\Windows\SplashScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

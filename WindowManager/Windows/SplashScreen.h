@@ -1,9 +1,9 @@
 #ifndef SPLASH_SCREEN_H
 #define SPLASH_SCREEN_H
 
-#include "Window.h"
-#include "pch.h"
-#include "Drawing.h"
+#include "../Window.h"
+#include "../../pch.h"
+#include "../../Drawing.h"
 
 // Class for rendering the splash scene
 class SplashScreen : public Window {

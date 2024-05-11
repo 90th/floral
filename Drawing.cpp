@@ -1,5 +1,5 @@
 #include "Drawing.h"
-#include "WindowManager.h"
+#include "WindowManager/WindowManager.h"
 
 bool Drawing::bDraw = true;
 

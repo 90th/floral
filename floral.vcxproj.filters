@@ -31,6 +31,9 @@
     <Filter Include="headers\GlobalData">
       <UniqueIdentifier>{713bb9a7-a01d-4454-94bc-9306af2351fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\TaskScheduler">
+      <UniqueIdentifier>{d52c67a6-1fb1-4bb8-940c-4b99ea3bfb7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,17 +66,17 @@
     <ClCompile Include="ImGui\imgui_impl_win32.cpp">
       <Filter>headers\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
+    <ClCompile Include="GlobalData\GlobalData.cpp">
+      <Filter>headers\GlobalData</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager\WindowManager.cpp">
       <Filter>headers\WindowManager</Filter>
     </ClCompile>
-    <ClCompile Include="SplashScreen.cpp">
+    <ClCompile Include="WindowManager\Windows\MainMenu.cpp">
       <Filter>headers\WindowManager\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
+    <ClCompile Include="WindowManager\Windows\SplashScreen.cpp">
       <Filter>headers\WindowManager\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="GlobalData.cpp">
-      <Filter>headers\GlobalData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,23 +113,26 @@
     <ClInclude Include="pch.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>headers\WindowManager</Filter>
+    <ClInclude Include="GlobalData\GlobalData.h">
+      <Filter>headers\GlobalData</Filter>
     </ClInclude>
-    <ClInclude Include="WindowManager.h">
-      <Filter>headers\WindowManager</Filter>
-    </ClInclude>
-    <ClInclude Include="SplashScreen.h">
-      <Filter>headers\WindowManager\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>headers\WindowManager\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugConsole.h">
+    <ClInclude Include="DebugConsole\DebugConsole.h">
       <Filter>headers\DebugConsole</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalData.h">
-      <Filter>headers\GlobalData</Filter>
+    <ClInclude Include="WindowManager\Window.h">
+      <Filter>headers\WindowManager</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager\WindowManager.h">
+      <Filter>headers\WindowManager</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager\Windows\MainMenu.h">
+      <Filter>headers\WindowManager\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager\Windows\SplashScreen.h">
+      <Filter>headers\WindowManager\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskScheduler\TaskScheduler.hpp">
+      <Filter>headers\TaskScheduler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

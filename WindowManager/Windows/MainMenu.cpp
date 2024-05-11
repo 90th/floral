@@ -1,8 +1,8 @@
 #include "MainMenu.h"
-#include "DebugConsole.h"
-#include "WindowManager.h"
+#include "../../DebugConsole/DebugConsole.h"
+#include "../WindowManager.h"
 #include "SplashScreen.h"
-#include "GlobalData.h"
+#include "../../GlobalData/GlobalData.h"
 
 LPCSTR MainMenu::lpWindowName = "Main menu";
 ImVec2 MainMenu::vWindowSize = { 350, 450 };

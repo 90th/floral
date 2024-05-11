@@ -1,9 +1,9 @@
 #ifndef MAIN_MENU_H
 #define MAIN_MENU_H
 
-#include "Window.h"
-#include "pch.h"
-#include "Drawing.h"
+#include "../Window.h"
+#include "../../pch.h"
+#include "../../Drawing.h"
 
 // Class for rendering the main menu window
 class MainMenu : public Window {
