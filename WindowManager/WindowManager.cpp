@@ -1,7 +1,7 @@
 #include "WindowManager.h"
 #include "Windows/SplashScreen.h"
 
-WindowManager::WindowManager() {}
+WindowManager::WindowManager() : hwnd(nullptr) {}
 
 WindowManager::~WindowManager() {}
 

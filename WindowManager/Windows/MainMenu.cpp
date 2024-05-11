@@ -14,6 +14,10 @@ void MainMenu::Render() {
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
 		ImGui::Text("Username: %s", GlobalData::GetInstance()->getUserData().username.c_str());
+		ImGui::BeginChild("child", ImVec2(200, 200), true); {
+			ImGui::Text("This is a child.");
+			ImGui::EndChild();
+		}
 	}
 	ImGui::End();
 }

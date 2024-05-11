@@ -25,9 +25,6 @@
     <Filter Include="headers\WindowManager\Windows">
       <UniqueIdentifier>{d4622dc6-4f41-4c63-936b-e0d70fcb933a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\GlobalData">
-      <UniqueIdentifier>{64c33bb8-8da4-4996-87be-ca8a53a587ba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="headers\GlobalData">
       <UniqueIdentifier>{713bb9a7-a01d-4454-94bc-9306af2351fb}</UniqueIdentifier>
     </Filter>
