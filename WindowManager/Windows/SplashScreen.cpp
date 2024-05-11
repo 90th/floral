@@ -1,5 +1,5 @@
-#include "SplashScreen.h"
 #include "../WindowManager.h"
+#include "SplashScreen.h"
 #include "MainMenu.h"
 
 LPCSTR SplashScreen::lpWindowName = "Splash";

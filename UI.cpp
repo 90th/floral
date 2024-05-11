@@ -1,7 +1,7 @@
-#include "UI.h"
 #include "DebugConsole/DebugConsole.h"
-#include "Drawing.h"
 #include "GlobalData/GlobalData.h"
+#include "UI.h"
+#include "Drawing.h"
 
 std::unique_ptr<UI> UI::_instance = std::make_unique<UI>();
 
