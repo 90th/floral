@@ -1,9 +1,10 @@
-#pragma once
 #include "GlobalData.h"
 
 GlobalData* GlobalData::instance = nullptr;
+std::mutex GlobalData::mutex;
 
 GlobalData* GlobalData::GetInstance() {
+	std::lock_guard<std::mutex> lock(mutex);
 	if (!instance)
 		instance = new GlobalData();
 	return instance;

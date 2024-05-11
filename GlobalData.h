@@ -3,10 +3,12 @@
 #define GLOBALDATA_H
 
 #include <string>
+#include <mutex>
 
 class GlobalData {
 private:
 	static GlobalData* instance;
+	static std::mutex mutex;
 	GlobalData() {}
 
 public:
@@ -14,7 +16,7 @@ public:
 		std::string username;
 		std::string email;
 		std::string ipAddress;
-	}userData;
+	} userData;
 
 	struct SystemData {
 		// add system related data in the future.
