@@ -4,14 +4,12 @@
 
 #include <string>
 #include <mutex>
+#include <memory> // Added for smart pointers
 
 class GlobalData {
 private:
-	static GlobalData* instance;
 	static std::mutex mutex;
-	GlobalData() {}
-
-public:
+	static std::unique_ptr<GlobalData> instance; // Use a smart pointer
 	struct UserData {
 		std::string username;
 		std::string email;
@@ -22,13 +20,16 @@ public:
 		// add system related data in the future.
 	} systemData;
 
-	static GlobalData* GetInstance();
+public:
+	GlobalData() {} // Private constructor to prevent external instantiation
 
-	// Methods for user data
+	static GlobalData& GetInstance();
+
+	// methods for user data
 	UserData getUserData() const;
 	void setUserData(const UserData& newData);
 
-	// Methods for system data
+	// methods for system data
 	SystemData getSystemData() const;
 	void setSystemData(const SystemData& newData);
 };

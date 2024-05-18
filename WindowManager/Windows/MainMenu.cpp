@@ -5,21 +5,20 @@
 #include "SplashScreen.h"
 
 LPCSTR MainMenu::lpWindowName = "Main menu";
-ImGuiWindowFlags MainMenu::WindowFlags = 0;
+ImGuiWindowFlags MainMenu::WindowFlags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings;
 
 void MainMenu::Render() {
-	ImGui::SetNextWindowSizeConstraints(ImVec2(350, 490), ImVec2(FLT_MAX, FLT_MAX)); // Set minimum window size
+	const std::string username = GlobalData::GetInstance().getUserData().username;
+	ImGui::SetNextWindowSizeConstraints(ImVec2(350, 490), ImVec2(500, 800)); // Set minimum window size
 	ImGui::SetNextWindowBgAlpha(1.0f);
 	ImGui::Begin(lpWindowName, &Drawing::bDraw, WindowFlags);
 	{
-		ImGui::Text("Username: %s", GlobalData::GetInstance()->getUserData().username.c_str());
-
+		ImGui::Text("Username: %s", username.c_str());
 		ImGui::BeginChild("child1", ImVec2(0, 200), true, ImGuiWindowFlags_AlwaysAutoResize);
 		{
 			ImGui::Text("Child 1");
 		}
 		ImGui::EndChild();
-
 		ImGui::BeginChild("child2", ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysAutoResize);
 		{
 			ImGui::Text("Child 2");

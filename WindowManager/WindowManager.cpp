@@ -6,12 +6,11 @@ WindowManager::WindowManager() : hwnd(nullptr) {}
 WindowManager::~WindowManager() {}
 
 WindowManager& WindowManager::GetInstance() {
-	static std::unique_ptr<WindowManager> _instance;
-	if (!_instance) {
-		_instance = std::make_unique<WindowManager>();
-		_instance->currentWindow = std::make_unique<SplashScreen>();
+	static WindowManager instance;
+	if (!instance.currentWindow) {
+		instance.currentWindow = std::make_unique<SplashScreen>();
 	}
-	return *_instance;
+	return instance;
 }
 
 void WindowManager::SetWindow(std::unique_ptr<Window> window) {

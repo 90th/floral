@@ -1,27 +1,28 @@
 #include "GlobalData.h"
 
-GlobalData* GlobalData::instance = nullptr;
 std::mutex GlobalData::mutex;
+std::unique_ptr<GlobalData> GlobalData::instance = nullptr;
 
-GlobalData* GlobalData::GetInstance() {
+GlobalData& GlobalData::GetInstance() {
 	std::lock_guard<std::mutex> lock(mutex);
-	if (!instance)
-		instance = new GlobalData();
-	return instance;
+	if (!instance) { // Check if instance is null
+		instance = std::make_unique<GlobalData>(); // Create a new instance
+	}
+	return *instance; // Return the instance
 }
 
 GlobalData::UserData GlobalData::getUserData() const {
-	return userData;
+	return GetInstance().userData; // Access userData through GetInstance
 }
 
 void GlobalData::setUserData(const UserData& newData) {
-	userData = newData;
+	GetInstance().userData = newData;
 }
 
 GlobalData::SystemData GlobalData::getSystemData() const {
-	return systemData;
+	return GetInstance().systemData; // Access systemData through GetInstance
 }
 
 void GlobalData::setSystemData(const SystemData& newData) {
-	systemData = newData;
+	GetInstance().systemData = newData;
 }

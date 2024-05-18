@@ -2,6 +2,7 @@
 #include "GlobalData/GlobalData.h"
 #include "UI.h"
 #include "Drawing.h"
+#include "icon.h"
 
 std::unique_ptr<UI> UI::_instance = std::make_unique<UI>();
 
@@ -149,14 +150,15 @@ inline void UI::CenterWindowOnScreen(HWND hwnd) {
 }
 
 void UI::Render() {
-	DebugConsole::GetInstance().OpenConsole();
 	ImGui_ImplWin32_EnableDpiAwareness();
-	const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T("floral"), nullptr };
+	HICON hIcon = CreateIconFromResourceEx(icon1, sizeof(icon1), TRUE, 0x00030000, 256, 256, LR_DEFAULTCOLOR | LR_DEFAULTSIZE);
+	const WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), hIcon, nullptr, nullptr, nullptr, _T("floral"), hIcon };
 	::RegisterClassEx(&wc);
-	const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("floral"), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, NULL);
+	const HWND hwnd = ::CreateWindow(wc.lpszClassName, _T("floral"), WS_OVERLAPPEDWINDOW, 100, 100, 50, 50, NULL, NULL, wc.hInstance, hIcon);
 
 	UI::CenterWindowOnScreen(hwnd);
-	GlobalData::GetInstance()->setUserData({ "floral", "", "" });
+	GlobalData::GetInstance().setUserData({ "floral", "", "" });
+	DebugConsole::GetInstance().OpenConsole();
 
 	if (!CreateDeviceD3D(hwnd)) {
 		CleanupDeviceD3D();

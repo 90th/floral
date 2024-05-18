@@ -31,6 +31,9 @@
     <Filter Include="headers\TaskScheduler">
       <UniqueIdentifier>{d52c67a6-1fb1-4bb8-940c-4b99ea3bfb7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\icons">
+      <UniqueIdentifier>{bb39da1c-6886-4cda-b33b-d4a929322c01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -131,5 +134,21 @@
     <ClInclude Include="TaskScheduler\TaskScheduler.hpp">
       <Filter>headers\TaskScheduler</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="icon.h">
+      <Filter>headers\icons</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="floral.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico">
+      <Filter>resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <string>
+#include <string_view>
 #include <Windows.h>
 #include <mutex>
 
@@ -15,28 +15,36 @@ public:
 	void OpenConsole() {
 		std::lock_guard<std::mutex> lock(mutex_);
 		if (!consoleAllocated) {
-			AllocConsole();
-			system("title [Debug Console] - Floral");
-			freopen_s(&consoleOut, "CONOUT$", "w", stdout);
-			consoleAllocated = true;
+			if (AllocConsole()) {
+				system("title [Debug Console] - Floral");
+				freopen_s(&consoleOut, "CONOUT$", "w", stdout);
+				consoleAllocated = true;
+			}
 		}
 	}
 
-	void Print(const std::string& message) {
+	void Print(std::string_view message) {
 		std::lock_guard<std::mutex> lock(mutex_);
 		if (!consoleAllocated)
 			OpenConsole();
-		std::cout << message << std::endl;
+		std::cout.write(message.data(), message.size());
+		std::cout.flush();
 	}
 
 	void Clear() {
 		std::lock_guard<std::mutex> lock(mutex_);
-		system("cls");
+		if (consoleAllocated) {
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+			CONSOLE_SCREEN_BUFFER_INFO csbi;
+			GetConsoleScreenBufferInfo(hConsole, &csbi);
+			DWORD written;
+			FillConsoleOutputCharacter(hConsole, ' ', csbi.dwSize.X * csbi.dwSize.Y, { 0, 0 }, &written);
+			FillConsoleOutputAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE, csbi.dwSize.X * csbi.dwSize.Y, { 0, 0 }, &written);
+			SetConsoleCursorPosition(hConsole, { 0, 0 });
+		}
 	}
-
 private:
-	DebugConsole() : consoleOut(nullptr), consoleAllocated(false) {}
-
+	DebugConsole() {}
 	~DebugConsole() {
 		std::lock_guard<std::mutex> lock(mutex_);
 		if (consoleAllocated)
