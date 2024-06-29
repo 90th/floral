@@ -1,1 +1,1 @@
-# Windows desktop app base with imgui/DX11 backend
+# Windows desktop app template with imgui/DX11 backend
